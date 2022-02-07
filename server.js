@@ -1,5 +1,5 @@
 const express = require('express');
-
+const app = express();
 const http = require('http');
 const server = http.createServer(app);
 const logger = require('morgan');
@@ -69,7 +69,7 @@ orders(app);
 products(app, upload);
 mercadoPagoRoutes(app);
 
-const app = express();
+
 const port = process.env.PORT || 3000;
 
 app.listen(port, host, () => {
