@@ -44,6 +44,7 @@ const products = require('./routes/productsRoutes');
 const address = require('./routes/addressRoutes');
 const orders = require('./routes/ordersRoutes');
 const mercadoPagoRoutes = require('./routes/mercadoPagoRoutes');
+const port = process.env.PORT || 3000;
 const host = '0.0.0.0';
 
 app.use(logger('dev'));
@@ -70,7 +71,7 @@ products(app, upload);
 mercadoPagoRoutes(app);
 
 
-const port = process.env.PORT || 3000;
+
 
 app.listen(port, host, () => {
     console.log('Application on PORT ' + port + ' successfull...');
