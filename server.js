@@ -1,14 +1,14 @@
 const express = require('express');
 
-// const http = require('http');
-// const server = http.createServer(app);
+const http = require('http');
+const server = http.createServer(app);
 const logger = require('morgan');
 const cors = require('cors');
 const multer = require('multer');
 const admin = require('firebase-admin');
 const serviceAccount = require('./serviceAccountKey.json');
 const passport = require('passport');
-const io = require('socket.io')(app);
+const io = require('socket.io')(server);
 const mercadopago = require('mercadopago');
 
 /*
@@ -74,6 +74,9 @@ const port = process.env.PORT || 3000;
 
 app.listen(port, host, () => {
     console.log('Application on PORT ' + port + ' successfull...');
+});
+server.listen(port, host, () => {
+    console.log('Server on PORT ' + port + ' successfull...');
 });
 
 // ERROR 
