@@ -45,7 +45,7 @@ const address = require('./routes/addressRoutes');
 const orders = require('./routes/ordersRoutes');
 const mercadoPagoRoutes = require('./routes/mercadoPagoRoutes');
 
-const port = process.env.port || 3000;
+const port = process.env.port || 3030;
 
 app.use(logger('dev'));
 app.use(express.json());
