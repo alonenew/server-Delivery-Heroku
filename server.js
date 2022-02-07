@@ -44,6 +44,8 @@ const products = require('./routes/productsRoutes');
 const address = require('./routes/addressRoutes');
 const orders = require('./routes/ordersRoutes');
 const mercadoPagoRoutes = require('./routes/mercadoPagoRoutes');
+const port = process.env.PORT || 3000;
+const host = '0.0.0.0';
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -69,7 +71,7 @@ products(app, upload);
 mercadoPagoRoutes(app);
 var ip = require("ip");
 
-server.listen(process.env.PORT || 3000, '0.0.0.0', () => {
+server.listen(port, host, () => {
     console.log(ip.address());
     console.log('Application on PORT ' + port + ' successfull...');
 });
