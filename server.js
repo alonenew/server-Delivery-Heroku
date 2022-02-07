@@ -1,5 +1,5 @@
 const express = require('express');
-const app = express();
+
 const http = require('http');
 const server = http.createServer(app);
 const logger = require('morgan');
@@ -69,12 +69,16 @@ address(app);
 orders(app);
 products(app, upload);
 mercadoPagoRoutes(app);
-var ip = require("ip");
 
-server.listen(port, host, () => {
-    console.log(ip.address());
+const app = express();
+const port = process.env.PORT || 3000;
+app.listen(port, host, () => {
     console.log('Application on PORT ' + port + ' successfull...');
 });
+
+// server.listen(port, host, () => {
+//     console.log('Application on PORT ' + port + ' successfull...');
+// });
 
 // ERROR 
 app.use((err, req, res, next) => {
