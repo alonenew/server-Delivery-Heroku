@@ -70,12 +70,6 @@ orders(app);
 products(app, upload);
 mercadoPagoRoutes(app);
 
-
-
-
-app.listen(port, host, () => {
-    console.log('Application on PORT ' + port + ' successfull...');
-});
 server.listen(port, host, () => {
     console.log('Server on PORT ' + port + ' successfull...');
 });
