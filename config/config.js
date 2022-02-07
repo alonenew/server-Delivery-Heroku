@@ -20,6 +20,8 @@ const databaseConfig = {
     'password': 'Plusomega01'
 };
 
-const db = pgp(DATABASE_URL);
+
+const db = pgp(databaseConfig);
+// const db = pgp(DATABASE_URL);
 
 module.exports = db;
