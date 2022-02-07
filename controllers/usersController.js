@@ -6,6 +6,8 @@ const storage = require('../utils/cloud_storage');
 
 module.exports = {
 
+    
+
     async getAll(req, res, next) {
         try {
             const data = await User.getAll();    
