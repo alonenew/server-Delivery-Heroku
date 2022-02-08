@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
-    "server":"nodemon server.js"
+    "server": "nodemon server.js"
   },
   "keywords": [
     "flutter",
@@ -16,22 +16,22 @@
   "author": "Sittichai Thammawat",
   "license": "MIT",
   "dependencies": {
-    "@google-cloud/storage": "^5.8.5",
+    "@google-cloud/storage": "^5.18.1",
     "bluebird": "^3.7.2",
     "cors": "^2.8.5",
     "crypto": "^1.0.1",
     "express": "^4.17.2",
-    "firebase-admin": "^9.8.0",
+    "firebase-admin": "^9.12.0",
     "ip": "^1.1.5",
     "mercadopago": "^1.5.8",
     "morgan": "^1.10.0",
-    "multer": "^1.4.2",
+    "multer": "^1.4.4",
+    "nodemon": "^1.17.5",
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",
     "pg": "^8.7.3",
     "pg-promise": "^10.10.2",
-    "socket.io": "^2.4.1",
-    "nodemon": "^1.17.5"
+    "socket.io": "^2.4.1"
   },
   "engines": {
     "node": "16.13.2",
