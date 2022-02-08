@@ -30,7 +30,7 @@ module.exports = {
 
             return res.status(201).json({
                 success: true,
-                message: 'La direccion se creo correctamente',
+                message: 'เพิ่มที่อยู่สำเร็จ',
                 data: data.id
             });
 
@@ -39,7 +39,7 @@ module.exports = {
             console.log(`Error ${error}`);    
             return res.status(501).json({
                 success: false,
-                message: 'Hubo un error creando la direccion',
+                message: 'เกิดข้อผิดพลาด',
                 error: error
             });
         }

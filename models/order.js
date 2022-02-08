@@ -19,7 +19,9 @@ Order.findByStatus = (status) => {
                 'name', P.name,
                 'description', P.description,
                 'price', P.price,
-                'image', P.image,
+                'image1', P.image1,
+                'image2', P.image2,
+                'image3', P.image3,
                 'quantity', OHP.quantity
             )
         ) AS products,
@@ -90,7 +92,9 @@ Order.findByDeliveryAndStatus = (id_delivery, status) => {
                 'name', P.name,
                 'description', P.description,
                 'price', P.price,
-                'image', P.image,
+                'image1', P.image1,
+                'image2', P.image2,
+                'image3', P.image3,
                 'quantity', OHP.quantity
             )
         ) AS products,
@@ -165,7 +169,9 @@ Order.findByClientAndStatus = (id_client, status) => {
                 'name', P.name,
                 'description', P.description,
                 'price', P.price,
-                'image', P.image,
+                'image1', P.image1,
+                'image2', P.image2,
+                'image3', P.image3,
                 'quantity', OHP.quantity
             )
         ) AS products,

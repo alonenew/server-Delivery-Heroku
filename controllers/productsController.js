@@ -6,14 +6,13 @@ module.exports = {
 
     async findByCategory(req, res, next) {
         try {
-            const id_category = req.params.id_category; // CLIENTE
+            const id_category = req.params.id_category; 
             const data = await Product.findByCategory(id_category);
             return res.status(201).json(data);
         } 
         catch (error) {
-            console.log(`Error: ${error}`);
             return res.status(501).json({
-                message: `เกิดข้อผิดพลาดในการเพิ่มรายการสินค้าตามหมวดหมู่`,
+                message: `เกิดข้อผิดพลาด`,
                 success: false,
                 error: error
             });
@@ -22,15 +21,14 @@ module.exports = {
     
     async findByCategoryAndProductName(req, res, next) {
         try {
-            const id_category = req.params.id_category; // CLIENTE
-            const product_name = req.params.product_name; // CLIENTE
+            const id_category = req.params.id_category; 
+            const product_name = req.params.product_name; 
             const data = await Product.findByCategoryAndProductName(id_category, product_name);
             return res.status(201).json(data);
         } 
         catch (error) {
-            console.log(`Error: ${error}`);
             return res.status(501).json({
-                message: `เกิดข้อผิดพลาดในการเพิ่มรายการสินค้าตามหมวดหมู่`,
+                message: `เกิดข้อผิดพลาด`,
                 success: false,
                 error: error
             });
@@ -40,7 +38,6 @@ module.exports = {
     async create(req, res, next) {
 
         let product = JSON.parse(req.body.product);
-        console.log(`Producto ${JSON.stringify(product)}`);
 
         const files = req.files;
 
@@ -48,7 +45,7 @@ module.exports = {
         
         if (files.length === 0) {
             return res.status(501).json({
-                message: 'เกิดข้อผิดพลาดในการเพิ่มสินค้า ไม่มีภาพ',
+                message: 'เกิดข้อผิดพลาด',
                 success: false
             });
         }
@@ -65,7 +62,13 @@ module.exports = {
 
                         if (url !== undefined && url !== null) {
                             if (inserts == 0) { // IMAGEN 1
-                                product.image = url;
+                                product.image1 = url;
+                            }
+                            else if(inserts == 1) { // IMAGEN 2
+                                product.image2 = url;
+                            }
+                            else if(inserts == 2) { // IMAGEN 3
+                                product.image3 = url;
                             }
                         }
 
@@ -87,7 +90,6 @@ module.exports = {
 
             } 
             catch (error) {
-                console.log(`Error: ${error}`);
                 return res.status(501).json({
                     message: `เกิดข้อผิดพลาดในการเพิ่มสินค้า ${error}`,
                     success: false,

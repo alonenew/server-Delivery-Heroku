@@ -51,8 +51,7 @@ module.exports = {
 
                 order.status = 'รายการสั่งซื้อ';
                 const orderData = await Order.create(order);
-
-                // RECORRER TODOS LOS PRODUCTOS AGREGADOS A LA ORDEN
+                
                 for (const product of order.products) {
                     await OrderHasProduct.create(orderData.id, product.id, product.quantity);
                 }
@@ -62,7 +61,7 @@ module.exports = {
         }
         else {
             return res.status(501).json({
-                message: 'เกิดข้อผิดพลาด ข้อมูลบางอย่างไม่ถูกต้อง',
+                message: 'เกิดข้อผิดพลาด',
                 success: false
             });
         }

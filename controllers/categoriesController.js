@@ -6,7 +6,6 @@ module.exports = {
 
         try {
             const data = await Category.getAll();
-            console.log(`Categorias ${JSON.stringify(data)}`);
             return res.status(201).json(data);
         } 
         catch (error) {
@@ -23,8 +22,6 @@ module.exports = {
     async create(req, res, next) {
         try {
             const category = req.body;
-            console.log(`Categoria enviada: ${category}`);
-
             const data = await Category.create(category);
 
             return res.status(201).json({
@@ -34,8 +31,7 @@ module.exports = {
             });
 
         } 
-        catch (error) {
-            console.log(`Error: ${error}`);    
+        catch (error) {  
             return res.status(501).json({
                 message: 'เกิดข้อผิดพลาดในการสร้างหมวดสินค้า',
                 success: false,

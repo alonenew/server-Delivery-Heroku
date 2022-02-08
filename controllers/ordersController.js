@@ -31,11 +31,9 @@ module.exports = {
             const status = req.params.status;
 
             const data = await Order.findByDeliveryAndStatus(id_delivery, status);
-            console.log(`Status delivery ${JSON.stringify(data)}`);
             return res.status(201).json(data);
         } 
         catch (error) {
-            console.log(`Error ${error}`);    
             return res.status(501).json({
                 message: 'เกิดข้อผิดพลาดขณะพยายามรับคำสั่งซื้อ',
                 error: error,
@@ -55,7 +53,6 @@ module.exports = {
             return res.status(201).json(data);
         } 
         catch (error) {
-            console.log(`Error ${error}`);    
             return res.status(501).json({
                 message: 'เกิดข้อผิดพลาดขณะพยายามรับคำสั่งซื้อ',
                 error: error,
@@ -71,8 +68,7 @@ module.exports = {
             let order = req.body;
             order.status = 'รายการสั่งซื้อ';
             const data = await Order.create(order);
-
-            // RECORRER TODOS LOS PRODUCTOS AGREGADOS A LA ORDEN
+            
             for (const product of order.products) {
                 await OrderHasProduct.create(data.id, product.id, product.quantity);
             }
@@ -85,7 +81,6 @@ module.exports = {
 
         } 
         catch (error) {
-            console.log(`Error ${error}`);    
             return res.status(501).json({
                 success: false,
                 message: 'เกิดข้อผิดพลาดในการสั่งซื้อ',
@@ -109,7 +104,6 @@ module.exports = {
 
         } 
         catch (error) {
-            console.log(`Error ${error}`);    
             return res.status(501).json({
                 success: false,
                 message: 'เกิดข้อผิดพลาดในการสั่งซื้อ',
@@ -182,7 +176,7 @@ module.exports = {
             console.log(`Error ${error}`);    
             return res.status(501).json({
                 success: false,
-                message: 'เกิดข้อผิดพลาดการอัปเดตคำสั่งซื้อ',
+                message: 'เกิดข้อผิดพลาด',
                 error: error
             });
         }
