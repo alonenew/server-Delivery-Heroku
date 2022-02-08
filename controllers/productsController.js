@@ -38,7 +38,7 @@ module.exports = {
     async create(req, res, next) {
 
         let product = JSON.parse(req.body.product);
-
+        console.log(`Product : ${JSON.stringify(product)}`)
         const files = req.files;
 
         let inserts = 0;
