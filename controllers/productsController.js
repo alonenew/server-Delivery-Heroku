@@ -65,7 +65,7 @@ module.exports = {
 
                         if (url !== undefined && url !== null) {
                             if (inserts == 0) { // IMAGEN 1
-                                product.image1 = url;
+                                product.image = url;
                             }
                         }
 
