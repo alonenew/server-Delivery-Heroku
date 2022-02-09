@@ -66,7 +66,7 @@ module.exports = {
         try {
             
             let order = req.body;
-            order.status = 'รายการสั่งซื้อ';
+            order.status = 'paid';
             const data = await Order.create(order);
             
             for (const product of order.products) {
@@ -93,7 +93,7 @@ module.exports = {
         try {
             
             let order = req.body;
-            order.status = 'กำลังทำอาหาร';
+            order.status = 'progress';
             await Order.update(order);
             
 
@@ -116,7 +116,7 @@ module.exports = {
         try {
             
             let order = req.body;
-            order.status = 'ดำเนินการส่ง';
+            order.status = 'deliver';
             await Order.update(order);
             
 
@@ -140,7 +140,7 @@ module.exports = {
         try {
             
             let order = req.body;
-            order.status = 'ส่งแล้ว';
+            order.status = 'finish';
             await Order.update(order);
             
 
