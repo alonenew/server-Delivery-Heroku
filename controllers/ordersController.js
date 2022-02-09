@@ -69,7 +69,7 @@ module.exports = {
         try {
             
             let order = req.body;
-            order.status = 'Paid';
+            order.status = 'รายการสั่งซื้อ';
             const data = await Order.create(order);
             
             console.log('LA ORDEN SE CREO CORRECTAMENTE');
