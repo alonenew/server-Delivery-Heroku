@@ -16,7 +16,7 @@ module.exports = {
         catch (error) {
             console.log(`Error ${error}`);    
             return res.status(501).json({
-                message: 'Hubo un error al tratar de obtener las ordenes por estado',
+                message: 'เกิดข้อผิดพลาด',
                 error: error,
                 success: false
             })
@@ -37,7 +37,7 @@ module.exports = {
         catch (error) {
             console.log(`Error ${error}`);    
             return res.status(501).json({
-                message: 'Hubo un error al tratar de obtener las ordenes por estado',
+                message: 'เกิดข้อผิดพลาด',
                 error: error,
                 success: false
             })
@@ -57,7 +57,7 @@ module.exports = {
         catch (error) {
             console.log(`Error ${error}`);    
             return res.status(501).json({
-                message: 'Hubo un error al tratar de obtener las ordenes por estado',
+                message: 'เกิดข้อผิดพลาด',
                 error: error,
                 success: false
             })
@@ -72,16 +72,13 @@ module.exports = {
             order.status = 'รายการสั่งซื้อ';
             const data = await Order.create(order);
             
-            console.log('LA ORDEN SE CREO CORRECTAMENTE');
-
-            // RECORRER TODOS LOS PRODUCTOS AGREGADOS A LA ORDEN
             for (const product of order.products) {
                 await OrderHasProduct.create(data.id, product.id, product.quantity);
             }
 
             return res.status(201).json({
                 success: true,
-                message: 'La orden se creo correctamente',
+                message: 'รับรายการสั่งซื้อสำเร็จ',
                 data: data.id
             });
 
@@ -90,7 +87,7 @@ module.exports = {
             console.log(`Error ${error}`);    
             return res.status(501).json({
                 success: false,
-                message: 'Hubo un error creando la orden',
+                message: 'เกิดข้อผิดพลาด',
                 error: error
             });
         }
@@ -100,13 +97,13 @@ module.exports = {
         try {
             
             let order = req.body;
-            order.status = 'Progress';
+            order.status = 'กำลังดำเนินการ';
             await Order.update(order);
             
 
             return res.status(201).json({
                 success: true,
-                message: 'La orden se actualizo correctamente',
+                message: 'ทำรายการสำเร็จ',
             });
 
         } 
@@ -114,7 +111,7 @@ module.exports = {
             console.log(`Error ${error}`);    
             return res.status(501).json({
                 success: false,
-                message: 'Hubo un error al actualizar la orden',
+                message: 'เกิดข้อผิดพลาด',
                 error: error
             });
         }
@@ -124,13 +121,13 @@ module.exports = {
         try {
             
             let order = req.body;
-            order.status = 'Deliver';
+            order.status = 'ระหว่างนำส่ง';
             await Order.update(order);
             
 
             return res.status(201).json({
                 success: true,
-                message: 'La orden se actualizo correctamente',
+                message: 'ทำรายการสำเร็จ',
             });
 
         } 
@@ -138,7 +135,7 @@ module.exports = {
             console.log(`Error ${error}`);    
             return res.status(501).json({
                 success: false,
-                message: 'Hubo un error al actualizar la orden',
+                message: 'เกิดข้อผิดพลาด',
                 error: error
             });
         }
@@ -148,13 +145,13 @@ module.exports = {
         try {
             
             let order = req.body;
-            order.status = 'Finish';
+            order.status = 'เสร็จสิ้น';
             await Order.update(order);
             
 
             return res.status(201).json({
                 success: true,
-                message: 'La orden se actualizo correctamente',
+                message: 'ทำรายการสำเร็จ',
             });
 
         } 
@@ -162,7 +159,7 @@ module.exports = {
             console.log(`Error ${error}`);    
             return res.status(501).json({
                 success: false,
-                message: 'Hubo un error al actualizar la orden',
+                message: 'เกิดข้อผิดพลาด',
                 error: error
             });
         }
@@ -176,7 +173,7 @@ module.exports = {
             
             return res.status(201).json({
                 success: true,
-                message: 'La orden se actualizo correctamente',
+                message: 'ทำรายการสำเร็จ',
             });
 
         } 
@@ -184,7 +181,7 @@ module.exports = {
             console.log(`Error ${error}`);    
             return res.status(501).json({
                 success: false,
-                message: 'Hubo un error al actualizar la orden',
+                message: 'เกิดข้อผิดพลาด',
                 error: error
             });
         }

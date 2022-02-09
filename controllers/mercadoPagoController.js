@@ -49,7 +49,7 @@ module.exports = {
 
                 let order = payment.order;
 
-                order.status = 'paid';
+                order.status = 'รายการสั่งซื้อ';
                 const orderData = await Order.create(order);
                 
                 for (const product of order.products) {
