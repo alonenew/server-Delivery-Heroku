@@ -69,7 +69,7 @@ module.exports = {
         try {
             
             let order = req.body;
-            order.status = 'PAGADO';
+            order.status = 'Paid';
             const data = await Order.create(order);
             
             console.log('LA ORDEN SE CREO CORRECTAMENTE');
@@ -100,7 +100,7 @@ module.exports = {
         try {
             
             let order = req.body;
-            order.status = 'DESPACHADO';
+            order.status = 'Progress';
             await Order.update(order);
             
 
@@ -124,7 +124,7 @@ module.exports = {
         try {
             
             let order = req.body;
-            order.status = 'EN CAMINO';
+            order.status = 'Deliver';
             await Order.update(order);
             
 
@@ -148,7 +148,7 @@ module.exports = {
         try {
             
             let order = req.body;
-            order.status = 'ENTREGADO';
+            order.status = 'Finish';
             await Order.update(order);
             
 
