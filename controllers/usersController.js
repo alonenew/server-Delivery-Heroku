@@ -80,7 +80,7 @@ module.exports = {
             const user = req.body;
             const data = await User.create(user);
 
-            await Rol.create(data.id, 1); // ROL POR DEFECTO (CLIENTE)
+            await Rol.create(data.id, 1);
 
             return res.status(201).json({
                 success: true,
@@ -144,7 +144,7 @@ module.exports = {
             const files = req.files;
 
             if (files.length > 0) {
-                const pathImage = `image_${Date.now()}`; // NOMBRE DEL ARCHIVO
+                const pathImage = `image_${Date.now()}`;
                 const url = await storage(files[0], pathImage);
 
                 if (url != undefined && url != null) {
@@ -209,8 +209,8 @@ module.exports = {
 
             if (User.isPasswordMatched(password, myUser.password)) {
                 const token = jwt.sign({id: myUser.id, email: myUser.email}, keys.secretOrKey, {
-                    // expiresIn: (60*60*24) // 1 HORA
-                    // expiresIn: (60 * 3) // 2 MINUTO
+                    // expiresIn: (60*60*24) // 1 วัน
+                    // expiresIn: (60 * 3) // 3 นาที
                 });
                 const data = {
                     id: myUser.id,

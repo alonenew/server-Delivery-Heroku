@@ -30,9 +30,9 @@ module.exports = (file, pathImage, deletePathImage) => {
 
                 fileDelete.delete().then((imageDelete) => {
 
-                    console.log('se borro la imagen con exito')
+                    console.log('ลบภาพสำเร็จ')
                 }).catch(err => {
-                    console.log('Failed to remove photo, error:', err)
+                    console.log('ลบรูปภาพไม่สำเร็จ ผิดพลาด :', err)
                 });
 
             }
@@ -56,14 +56,12 @@ module.exports = (file, pathImage, deletePathImage) => {
                 }));
 
                 blobStream.on('error', (error) => {
-                    console.log('Error al subir archivo a firebase', error);
-                    reject('Something is wrong! Unable to upload at the moment.');
+                    reject('บางสิ่งบางอย่างที่ไม่ถูกต้อง! ไม่สามารถอัปโหลดได้ในขณะนี้.');
                 });
 
                 blobStream.on('finish', () => {
                     // The public URL can be used to directly access the file via HTTP.
                     const url = format(`https://firebasestorage.googleapis.com/v0/b/${bucket.name}/o/${fileUpload.name}?alt=media&token=${uuid}`);
-                    console.log('URL DE CLOUD STORAGE ', url);
                     resolve(url);
                 });
 

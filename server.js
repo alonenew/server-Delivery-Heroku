@@ -14,9 +14,6 @@ const mercadopago = require('mercadopago');
 /*
 * MERCADO PAGO CONFIGUARCION
 */
-mercadopago.configure({
-    access_token: 'TEST-6028900970379574-062302-e3e5d11b7871ee742832e6351694608f-191014229'
-});
 
 /*
 * SOCKETS
