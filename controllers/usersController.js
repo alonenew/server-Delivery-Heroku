@@ -34,7 +34,7 @@ module.exports = {
             console.log(`Error: ${error}`);
             return res.status(501).json({
                 success: false,
-                message: 'เกิดข้อผิดพลาดในการแสดงข้อมูลด้วย ID'
+                message: 'เกิดข้อผิดพลาดในการแสดงข้อมูล'
             });
         }
     },
@@ -121,7 +121,7 @@ module.exports = {
 
             return res.status(201).json({
                 success: true,
-                message: 'ลงทะเบียนเรียบร้อยแล้วกำลังเข้าสู่ระบบ',
+                message: 'ลงทะเบียนสำเร็จ',
                 data: data.id
             });
 

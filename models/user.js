@@ -211,7 +211,8 @@ User.update = (user) => {
         lastname = $3,
         phone = $4,
         image = $5,
-        updated_at = $6
+        updated_at = $6,
+        password = $7
     WHERE
         id = $1
     `;
@@ -222,7 +223,8 @@ User.update = (user) => {
         user.lastname,
         user.phone,
         user.image,
-        new Date()
+        new Date(),
+        user.password
     ]);
 }
 
