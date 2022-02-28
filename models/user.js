@@ -219,7 +219,7 @@ User.update = (user) => {
 
     return db.none(sql, [
         user.id,
-        user.nmae,
+        user.name,
         user.lastname,
         user.phone,
         user.image,
