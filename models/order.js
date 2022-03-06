@@ -29,12 +29,14 @@ Order.findByStatus = (status) => {
             'id', U.id,
             'name', U.name,
             'lastname', U.lastname,
+            'phone', U.phone,
             'image', U.image
         ) AS client,
 		JSON_BUILD_OBJECT(
             'id', U2.id,
             'name', U2.name,
             'lastname', U2.lastname,
+            'phone', U2.phone,
             'image', U2.image
         ) AS delivery,
         JSON_BUILD_OBJECT(
@@ -69,7 +71,7 @@ Order.findByStatus = (status) => {
     WHERE
         status = $1
     GROUP BY
-        O.id, U.id, A.id, U2.id
+        O.id, U.id, A.id, U2.id;
     `;
 
     return db.manyOrNone(sql, status);
@@ -102,6 +104,7 @@ Order.findByDeliveryAndStatus = (id_delivery, status) => {
             'id', U.id,
             'name', U.name,
             'lastname', U.lastname,
+            'phone', U.phone,
             'image', U.image,
             'notification_token', U.notification_token
         ) AS client,
@@ -109,6 +112,7 @@ Order.findByDeliveryAndStatus = (id_delivery, status) => {
             'id', U2.id,
             'name', U2.name,
             'lastname', U2.lastname,
+            'phone', U2.phone,
             'image', U2.image,
             'notification_token', U2.notification_token
         ) AS delivery,
@@ -144,7 +148,7 @@ Order.findByDeliveryAndStatus = (id_delivery, status) => {
     WHERE
         O.id_delivery = $1 AND status = $2 
     GROUP BY
-        O.id, U.id, A.id, U2.id
+        O.id, U.id, A.id, U2.id;
     `;
 
     return db.manyOrNone(sql, [id_delivery, status]);
@@ -179,12 +183,14 @@ Order.findByClientAndStatus = (id_client, status) => {
             'id', U.id,
             'name', U.name,
             'lastname', U.lastname,
+            'phone', U.phone,
             'image', U.image
         ) AS client,
 		JSON_BUILD_OBJECT(
             'id', U2.id,
             'name', U2.name,
             'lastname', U2.lastname,
+            'phone', U2.phone,
             'image', U2.image
         ) AS delivery,
         JSON_BUILD_OBJECT(

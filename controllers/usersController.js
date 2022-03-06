@@ -187,7 +187,7 @@ module.exports = {
             console.log(`Error: ${error}`);
             return res.status(501).json({
                 success: false,
-                message: 'Hubo un error con la actualizacion de datos del usuario',
+                message: 'เกิดข้อผิดพลาด',
                 error: error
             });
         }
